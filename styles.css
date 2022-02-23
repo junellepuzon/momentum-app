@@ -60,4 +60,27 @@
     outline: 0px solid transparent;
   }
   
-  
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+  .quoteDisplay {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding-left: 10px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }

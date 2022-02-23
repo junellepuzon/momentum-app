@@ -113,3 +113,21 @@ focus.addEventListener("blur", setFocus);
 
 getFocus();
 
+// random quotes
+
+let quotes = [
+  '"It does not matter how slowly you go as long as you do not stop."',
+  '"Start where you are. Use what you have. Do what you can."',
+  '"It always seem impossible until it\'s done."',
+  '"Learn as if you will live forever, live like you will die tomorrow."',
+  '"When you change your thoughts, remember to also change your world."',
+  '"Success is not final; failure is not fatal: It is the courage to continue that counts."',
+];
+
+function refresh() {
+  let randomQuotes = Math.floor(Math.random() * quotes.length);
+  document.querySelector(".quote").innerHTML = quotes[randomQuotes];
+}
+
+refresh();
+
