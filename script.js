@@ -15,11 +15,13 @@ function showTime() {
 
   // output
   time.innerHTML = `${hour}<span>:</span>${addZero(min)} ${amPm}`;
+
+  setTimeout(showTime, 1000);
 }
 
 // add zero
 function addZero(n) {
-  return (parseInt(n, 10) < 10 ? "0" : "") + n;
+  return (parseInt(n) < 10 ? "0" : "") + n;
 }
 
 showTime();
@@ -49,4 +51,65 @@ function backgroundGreeting() {
 
 backgroundGreeting();
 
+// editable name
+
+const name = document.getElementById("name");
+
+// get name
+function getName() {
+  if (localStorage.getItem("name") === null) {
+    name.textContent = "Nelle";
+  } else {
+    name.textContent = localStorage.getItem("name");
+  }
+}
+
+// set name
+function setName(event) {
+  if (event.type === "keypress") {
+    // make sure enter is pressed
+    if (event.which == 13 || event.keyCode == 13) {
+      localStorage.setItem("name", event.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem("name", event.target.innerText);
+  }
+}
+
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
+
+getName();
+
+// editable focus
+
+const focus = document.getElementById("focus");
+
+// get focus
+function getFocus() {
+  if (localStorage.getItem("focus") === null) {
+    focus.textContent = "Watch JavaScript tutorial";
+  } else {
+    focus.textContent = localStorage.getItem("focus");
+  }
+}
+
+// set focus
+function setFocus(e) {
+  if (e.type === "keypress") {
+    // make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem("focus", e.target.innerText);
+      focus.blur();
+    }
+  } else {
+    localStorage.setItem("focus", e.target.innerText);
+  }
+}
+
+focus.addEventListener("keypress", setFocus);
+focus.addEventListener("blur", setFocus);
+
+getFocus();
 
