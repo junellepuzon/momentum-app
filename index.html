@@ -12,6 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+ 
+
   <header>
     <div class="top-left">
       <div class="links">Links</div>
@@ -22,7 +24,7 @@
     </div>
   </header>
 
-  <div class="container">
+  <div class="time-container">
     <time class="time"></time>
     <h1>
       <span id="greeting"></span>
@@ -38,8 +40,26 @@
         <div class="quote"></div>
         <button onclick="refresh()"><i class="fa fa-refresh"></i></button>
       </div>
-      <div class="toDoButton">Todo</div>
+      <div class="toDoButton" onclick="toggleButton()">Todo</div>
     </footer>
+
+    <div class="hide-container">
+      <div class="todo-container">
+        <div class="add-label">Add task</div>
+        <div class="add-item">
+          <input type="text" class="box">
+          <div class="add-task"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="todo-label">Todo</div>
+        <div class="todo-list-1">
+          <input type="checkbox"><span id="label">Study JavaScript</span>
+          <div class="todo-list-2">
+          <input type="checkbox"><span id="label">Create a Momentum App</span></div>
+        </div>
+        <div class="complete-label">Completed</div>
+        <div class="complete-list-1">
+          <input type="checkbox" checked><span id="label">Attend 7pm class</span>
+      </div></div>
 
     <script src="./script.js"></script>
 

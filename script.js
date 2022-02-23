@@ -131,3 +131,17 @@ function refresh() {
 
 refresh();
 
+// todo list show and hide
+
+const toDoList = document.querySelector('.todo-container')
+const toDoButton = document.querySelector('..toDoButton')
+
+function toggleButton() {
+  if (toDoList.style.display !== "none") {
+    toDoList.style.display = "none";
+  } else {
+    toDoList.style.display = "flex";
+  }
+}
+
+toggleButton();
