@@ -31,4 +31,15 @@
     padding-right: 20px;
   }
   
-  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+  }
+
+  .time {
+    font-size: 8rem;
+    font-weight: 600;
+  }
