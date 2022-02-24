@@ -68,7 +68,7 @@ function getName() {
 function setName(event) {
   if (event.type === "keypress") {
     // make sure enter is pressed
-    if ((event.which == 13 || event.keyCode == 13)) {
+    if (event.which == 13 || event.keyCode == 13) {
       localStorage.setItem("name", event.target.innerText);
       name.blur();
     }
@@ -99,7 +99,7 @@ function getFocus() {
 function setFocus(event) {
   if (event.type === "keypress") {
     // make sure enter is pressed
-    if ((event.which == 13 || event.keyCode == 13)) {
+    if (event.which == 13 || event.keyCode == 13) {
       localStorage.setItem("focus", event.target.innerText);
       focus.blur();
     }
@@ -136,17 +136,7 @@ refresh();
 const addButton = document.querySelector(".tooltip");
 const quoteBox = document.querySelector(".quote-box");
 
-// function addQuote() {
-//   if (quoteBox.style.display !== "none") {
-//     quoteBox.style.display = "none";
-//   } else {
-//     quoteBox.style.display = "block";
-//   }
-// }
-
-// addQuote();
-
-addButton.addEventListener("click", addQuote)
+addButton.addEventListener("click", addQuote);
 
 function addQuote() {
   quoteBox.classList.toggle("show-input");
@@ -175,17 +165,7 @@ quoteBox.addEventListener("keypress", getQuote);
 const toDoList = document.querySelector(".todo-container");
 const toDoButton = document.querySelector(".toDoButton");
 
-// function toDoListDisplay() {
-//   if (toDoList.style.display !== "none") {
-//     toDoList.style.display = "none";
-//   } else {
-//     toDoList.style.display = "flex";
-//   }
-// }
-
-// toDoListDisplay();
-
-toDoButton.addEventListener("click", toDoListDisplay)
+toDoButton.addEventListener("click", toDoListDisplay);
 
 function toDoListDisplay() {
   toDoList.classList.toggle("show-todo-list");
