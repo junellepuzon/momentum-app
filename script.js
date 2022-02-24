@@ -68,7 +68,7 @@ function getName() {
 function setName(event) {
   if (event.type === "keypress") {
     // make sure enter is pressed
-    if (event.which == 13 || event.keyCode == 13) {
+    if ((event.which == 13 || event.keyCode == 13)) {
       localStorage.setItem("name", event.target.innerText);
       name.blur();
     }
@@ -96,15 +96,15 @@ function getFocus() {
 }
 
 // set focus
-function setFocus(e) {
-  if (e.type === "keypress") {
+function setFocus(event) {
+  if (event.type === "keypress") {
     // make sure enter is pressed
-    if (e.which == 13 || e.keyCode == 13) {
-      localStorage.setItem("focus", e.target.innerText);
+    if ((event.which == 13 || event.keyCode == 13)) {
+      localStorage.setItem("focus", event.target.innerText);
       focus.blur();
     }
   } else {
-    localStorage.setItem("focus", e.target.innerText);
+    localStorage.setItem("focus", event.target.innerText);
   }
 }
 
@@ -131,32 +131,62 @@ function refresh() {
 
 refresh();
 
-// add quote
+// add quote button
 
-const addButton = document.querySelector('.tooltip')
-const quoteBox = document.querySelector('.quote-box')
+const addButton = document.querySelector(".tooltip");
+const quoteBox = document.querySelector(".quote-box");
+
+// function addQuote() {
+//   if (quoteBox.style.display !== "none") {
+//     quoteBox.style.display = "none";
+//   } else {
+//     quoteBox.style.display = "block";
+//   }
+// }
+
+// addQuote();
+
+addButton.addEventListener("click", addQuote)
 
 function addQuote() {
-  if (quoteBox.style.display !== "none") {
+  quoteBox.classList.toggle("show-input");
+}
+
+// add quote
+
+const quoteDisplay = document.querySelector(".quote");
+
+function getQuote(e) {
+  if (
+    (e.code == "Enter" || e.code == "NumpadEnter") &&
+    quoteBox.value.length !== 0
+  ) {
+    let inputValue = quoteBox.value;
+    quoteDisplay.innerHTML = `<span>"</span>${inputValue}<span>"</span>`;
     quoteBox.style.display = "none";
-  } else {
-    quoteBox.style.display = "block";
+    quoteBox.value = "";
   }
 }
 
-addQuote()
+quoteBox.addEventListener("keypress", getQuote);
 
 // todo list show and hide
 
-const toDoList = document.querySelector('.todo-container')
-const toDoButton = document.querySelector('..toDoButton')
+const toDoList = document.querySelector(".todo-container");
+const toDoButton = document.querySelector(".toDoButton");
 
-function toggleButton() {
-  if (toDoList.style.display !== "none") {
-    toDoList.style.display = "none";
-  } else {
-    toDoList.style.display = "flex";
-  }
+// function toDoListDisplay() {
+//   if (toDoList.style.display !== "none") {
+//     toDoList.style.display = "none";
+//   } else {
+//     toDoList.style.display = "flex";
+//   }
+// }
+
+// toDoListDisplay();
+
+toDoButton.addEventListener("click", toDoListDisplay)
+
+function toDoListDisplay() {
+  toDoList.classList.toggle("show-todo-list");
 }
-
-toggleButton();

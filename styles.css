@@ -81,7 +81,7 @@ button {
   background-color: transparent;
   border: none;
   color: white;
-  padding-left: 10px
+  padding-left: 10px;
 }
 
 button:hover {
@@ -104,7 +104,7 @@ button:hover {
 }
 
 .todo-container {
-  display: none;
+  display: block;
   flex-direction: column;
   width: 500px;
   text-align: left;
@@ -114,22 +114,21 @@ button:hover {
   line-height: 1.8;
   border-radius: 10px;
   margin: 0 20px 20px 0;
-  transform: translateY(-20px)
+  transform: translateY(-20px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s all;
+}
+
+.show-todo-list {
+  visibility: visible;
+  opacity: 1;
 }
 
 .box {
   width: 380px;
   height: 30px;
   border-radius: 5px;
-}
-
-input {
-  accent-color: rgb(53, 53, 53);
-  outline: none;
-  border: none
-}
-
-input[type="text"] {
   margin: 0;
   font-size: 16px;
   line-height: 18px;
@@ -139,7 +138,13 @@ input[type="text"] {
   color: #888;
 }
 
-input[type="text"]:focus {
+input {
+  accent-color: rgb(53, 53, 53);
+  outline: none;
+  border: none;
+}
+
+.box:focus {
   color: #333;
 }
 
@@ -177,7 +182,7 @@ input[type="text"]:focus {
 .complete-list {
   padding-top: 10px;
   text-decoration: line-through;
-  color: rgb(189, 188, 188)
+  color: rgb(189, 188, 188);
 }
 
 #label {
@@ -216,9 +221,9 @@ input[type="text"]:focus {
   position: absolute;
   z-index: 1;
   bottom: 100%;
-  left: 50%; 
+  left: 50%;
   margin-left: -60px;
-  font-size: 11px
+  font-size: 11px;
 }
 
 .tooltip:hover .tooltip-text {
@@ -231,6 +236,25 @@ input[type="text"]:focus {
   outline: none;
   border: none;
   position: absolute;
-  transform: translate(145px, -40px);
-  display: none;
+  transform: translate(-50%, -40px);
+  display: block;
+  left: 50%;
+  height: 35px;
+  background-color: rgba(151, 151, 151, 0.4);
+  padding: 0 10px;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s all;
+
+}
+
+.quote-box::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.show-input {
+  visibility: visible;
+  opacity: 1;
 }
