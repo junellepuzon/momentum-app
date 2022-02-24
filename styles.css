@@ -12,6 +12,8 @@ body {
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
+  user-select: none;
+  overflow: hidden;
 }
 
 header {
@@ -66,19 +68,21 @@ footer {
   justify-content: space-between;
   align-items: center;
   margin: 0 20px;
+  font-size: 18px;
 }
 
 .quoteDisplay {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
 }
 
 button {
   background-color: transparent;
   border: none;
   color: white;
-  padding-left: 10px;
+  padding-left: 10px
 }
 
 button:hover {
@@ -102,7 +106,7 @@ button:hover {
 .todo-container {
   display: none;
   flex-direction: column;
-  width: 300px;
+  width: 500px;
   text-align: left;
   padding: 40px;
   background-color: rgb(0, 0, 0, 0.5);
@@ -113,13 +117,29 @@ button:hover {
 }
 
 .box {
-  width: 170px;
+  width: 380px;
   height: 30px;
   border-radius: 5px;
 }
 
 input {
   accent-color: rgb(53, 53, 53);
+  outline: none;
+  border: none
+}
+
+input[type="text"] {
+  margin: 0;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px;
+  background: rgb(255, 255, 255, 0.9);
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+
+input[type="text"]:focus {
+  color: #333;
 }
 
 .add-item {
@@ -149,18 +169,67 @@ input {
   letter-spacing: 1px;
 }
 
-.todo-list-1,
-.complete-list-1 {
+.todo-list-1 {
   padding-top: 10px;
+}
+
+.complete-list {
+  padding-top: 10px;
+  text-decoration: line-through;
+  color: rgb(189, 188, 188)
 }
 
 #label {
   padding-left: 10px;
 }
 
-.fa-plus {
-  background-color: rgb(131, 130, 130);
-  padding: 5px;
+.add-task > .fa-plus {
   border-radius: 5px;
   color: rgb(209, 203, 203);
+}
+
+.fa-trash-o {
+  display: none;
+  padding-left: 30px;
+}
+
+.fa-trash-o:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 80px;
+  background-color: rgba(88, 88, 88, 0.7);
+  color: rgb(235, 235, 235);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%; 
+  margin-left: -60px;
+  font-size: 11px
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.quote-box {
+  border-radius: 5px;
+  width: 400px;
+  outline: none;
+  border: none;
+  position: absolute;
+  transform: translate(145px, -40px);
+  display: none;
 }

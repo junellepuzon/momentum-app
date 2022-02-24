@@ -131,6 +131,21 @@ function refresh() {
 
 refresh();
 
+// add quote
+
+const addButton = document.querySelector('.tooltip')
+const quoteBox = document.querySelector('.quote-box')
+
+function addQuote() {
+  if (quoteBox.style.display !== "none") {
+    quoteBox.style.display = "none";
+  } else {
+    quoteBox.style.display = "block";
+  }
+}
+
+addQuote()
+
 // todo list show and hide
 
 const toDoList = document.querySelector('.todo-container')
